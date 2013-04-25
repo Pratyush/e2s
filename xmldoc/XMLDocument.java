@@ -1,4 +1,4 @@
-/*  XMLParser.java  */
+/*  XMLe2s.java  */
 
 package xmldoc;
 
@@ -59,12 +59,20 @@ public class XMLDocument {
 				String pos = "";
 				String word = node.getElementsByTagName("gloss").item(0).getTextContent();
 				String translation = node.getElementsByTagName("orth").item(0).getTextContent().replaceAll("\"", "");
+				String tense = "-";
 				if (node.getElementsByTagName("pos").item(0) != null) {
 					pos = node.getElementsByTagName("pos").item(0).getTextContent();
+					tense = "-";
+					try {
+					  tense = node.getElementsByTagName("tns").item(0).getTextContent();
+					} catch (NullPointerException e) {
+			
+					}
 				} else {
-					pos = node.getElementsByTagName("tns").item(0).getTextContent();
+				  pos = "v.";
+					tense = node.getElementsByTagName("tns").item(0).getTextContent();
 				}
-				Word nodeWord = new Word(word, translation, pos);
+				Word nodeWord = new Word(word, translation, pos, tense);
 				dictionary.insert(word, nodeWord);
 				
 				node = (Element) items.item(++i);

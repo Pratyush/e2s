@@ -16,6 +16,7 @@ public class Word {
 	String word;
 	String translation;
 	String pos;
+	String tense;
 	
 	/**
 	 * Default constructor for Word.
@@ -25,6 +26,7 @@ public class Word {
   	word = "";
   	translation = "";
   	pos = "";
+  	tense = "";
   }
   
   /**
@@ -35,10 +37,11 @@ public class Word {
    * @param pos the part of speech that translation belongs to.
    */
   
-  public Word(String word, String translation, String pos) {
+  public Word(String word, String translation, String pos, String tns) {
   	this.word = word;
   	this.translation = translation;
   	this.pos = pos;
+  	this.tense = tns;
   }
   
   /**
@@ -61,5 +64,9 @@ public class Word {
   
   public String partOfSpeech() {
   	return pos;
+  }
+  
+  public String tense() {
+    return tense;
   }
 }
