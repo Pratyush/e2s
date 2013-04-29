@@ -212,10 +212,17 @@ public class HashTableChained implements Dictionary {
   public Entry remove(Object key) {
     int arrayIndex = compFunction(key.hashCode());
     try {
-      Entry returnEntry = (Entry)hashTable[arrayIndex].front().item();
-      hashTable[arrayIndex].front().remove();
-      numberOfEntries--;
-      return returnEntry;
+    	DList removeList = hashTable[arrayIndex];
+    	DListNode temp = removeList.front();
+    	Entry returnEntry = (Entry) temp.item();
+    	while (temp.isValidNode()) { 
+    	  if (((Entry)temp.item()).value().equals(key)) {
+      	  temp.remove();
+      	  numberOfEntries--;
+    	  }
+    	  temp = temp.next();
+    	}
+    	return returnEntry;
     } catch (InvalidNodeException e) {
       return null;
     }
@@ -274,7 +281,7 @@ public class HashTableChained implements Dictionary {
 
   private int primeSieve(int n) {
     boolean[] primeArray = new boolean[n+1];
-    int nearestPrime = 0;
+    int nearestPrime = 2;
     for (int i = 2; i <= n; i++) {
       primeArray[i] = true;
     } 
@@ -285,7 +292,7 @@ public class HashTableChained implements Dictionary {
         }
       }
     }
-    for (int i = n; n >= 1; i--) {
+    for (int i = n; i >= 1; i--) {
       if (primeArray[i]) {
         nearestPrime = i;
         break;
