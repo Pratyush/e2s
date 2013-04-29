@@ -229,11 +229,15 @@ public class MainWindow extends javax.swing.JFrame {
           currentWord = ((Word) ((Entry) (temp.item())).value());
           translations.append("Sindarin translation: " + currentWord.translation() + "\n");
           translations.append("Part of Speech: " + currentWord.partOfSpeech() + "\n");
-          translations.append("Tense: " + currentWord.tense() + "\n");
-          if (!((String) usageDict.find(currentWord.translation()).value()).equals(" ")) {
-            translations.append("Usage: " + usageDict.find(currentWord.translation())+ "\n");
-          } else {
-            translations.append("Usage: " + "-"  +"\n");
+          if (!currentWord.tense().equals("-")) {
+        	translations.append("Tense: " + currentWord.tense() + "\n");  
+          }
+          
+          if (usageDict.find(currentWord.translation()) != null) {
+	        if (!((String) usageDict.find(currentWord.translation()).value()).equals("-") &&
+	        	!((String) usageDict.find(currentWord.translation()).value()).equals("")) {
+	          translations.append("Usage: " + usageDict.find(currentWord.translation())+ "\n");
+	        }
           }
           translations.append("\n");
           try {
