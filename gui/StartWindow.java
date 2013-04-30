@@ -3,6 +3,7 @@
 package gui;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -22,8 +23,6 @@ import word.*;
 import xmldoc.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.image.BufferedImage;
-import java.io.InputStream;
 
 import list.*;
 import java.awt.Color;
@@ -154,13 +153,13 @@ public class StartWindow {
       btnExit.setFont(droidSans);
       btnAbout.setFont(droidSans);
       
-      InputStream backImgStrm = getClass().getResourceAsStream("/assets/middle-earth-map.jpg");
-      BufferedImage img = ImageIO.read(backImgStrm);
+      Image img = ImageIO.read(getClass().getResourceAsStream("/assets/middle-earth-map.jpg"));
+      //BufferedImage img = ImageIO.read(backImgStrm);
 
       backImg.setIcon(new ImageIcon(img));
       
     } catch (Exception e) {
-      e.printStackTrace();
+      System.err.println(e);
     }
   }
   
