@@ -1,3 +1,5 @@
+/* AboutWindow.java  */
+
 package gui;
 
 import java.awt.Desktop;
@@ -5,8 +7,12 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.InputStream;
 import java.net.URL;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,6 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
+import javax.swing.JLabel;
 
 public class AboutWindow {
 
@@ -48,7 +55,7 @@ public class AboutWindow {
   private void initialize() {
     frmAbout = new JFrame();
     frmAbout.setTitle("About");
-    frmAbout.setBounds(100, 100, 450, 300);
+    frmAbout.setBounds(100, 100, 441, 303);
     frmAbout.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frmAbout.getContentPane().setLayout(null);
     
@@ -60,7 +67,7 @@ public class AboutWindow {
     JScrollPane scrollPane = new JScrollPane();
     scrollPane.setBounds(91, 32, 272, 177);
     panel.add(scrollPane);
-    
+   
     JTextPane txtpnMan = new JTextPane();
     txtpnMan.addHyperlinkListener(new HyperlinkListener() {
       public void hyperlinkUpdate(HyperlinkEvent e) {
@@ -102,6 +109,14 @@ public class AboutWindow {
       Font droidSans = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/assets/DroidSans.ttf")).deriveFont(14f);
       panel.setFont(droidSans);
       btnOk.setFont(droidSans);
+      
+      InputStream backImgStrm = getClass().getResourceAsStream("/assets/middle-earth-map.jpg");
+      BufferedImage img = ImageIO.read(backImgStrm);
+      
+      JLabel backImg = new JLabel("");
+      backImg.setBounds(0, 0, 438, 276);
+      backImg.setIcon(new ImageIcon(img));
+      panel.add(backImg);
     } catch (Exception e) {
       e.printStackTrace();
     }
