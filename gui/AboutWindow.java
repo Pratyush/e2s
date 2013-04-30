@@ -60,7 +60,7 @@ public class AboutWindow {
     frmAbout.getContentPane().setLayout(null);
     
     JPanel panel = new JPanel();
-    panel.setBounds(0, 0, 438, 288);
+    panel.setBounds(0, 0, 438, 277);
     frmAbout.getContentPane().add(panel);
     panel.setLayout(null);
     
