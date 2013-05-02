@@ -57,7 +57,7 @@ public class XMLDocument {
 			Element node = (Element) items.item(0);
 			for (int i = 0; i < items.getLength();) {
 				String pos = "";
-				String word = node.getElementsByTagName("gloss").item(0).getTextContent();
+				String word = node.getElementsByTagName("gloss").item(0).getTextContent().trim().replace("\t\t\t\t", "");
 				String translation = node.getElementsByTagName("orth").item(0).getTextContent().replaceAll("\"", "");
 				String tense = "-";
 				if (node.getElementsByTagName("pos").item(0) != null) {

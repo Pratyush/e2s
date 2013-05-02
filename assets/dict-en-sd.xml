@@ -1407,11 +1407,7 @@
 	<item n="begin">
 		<gloss>begin</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="heno" resp="ed">herio</corr>
-				"
-			</orth>
+			<orth>"herio"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>v.</pos>
@@ -1573,11 +1569,7 @@
 	<item n="bind">
 		<gloss>bind</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="gwedi" resp="ed">gwedhi</corr>
-				"
-			</orth>
+			<orth>"gwedhi"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>v.</pos>
@@ -3223,9 +3215,7 @@
 		<gloss>clothe</gloss>
 		<entry n="">
 			<orth>
-				"
-				<corr sic="hamnia" resp="ed">hamma-</corr>
-				"
+				"hamma-"
 			</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
@@ -4894,9 +4884,7 @@
 		<gloss>dew</gloss>
 		<entry n="">
 			<orth>
-				"
-				<corr sic="mídh" resp="ed">mîdh</corr>
-				"
+				"mîdh"
 			</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
@@ -5464,11 +5452,7 @@
 	<item n="drunk">
 		<gloss>drunk</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="sogennen" resp="ed">sogannen</corr>
-				"
-			</orth>
+			<orth>"sogannen"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<tns>pp.</tns>
@@ -7746,11 +7730,7 @@
 	<item n="fierce">
 		<gloss>fierce</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="brerg" resp="ed">brêg</corr>
-				"
-			</orth>
+			<orth>"brêg"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>adj.</pos>
@@ -10246,11 +10226,7 @@
 	<item n="hammer">
 		<gloss>hammer</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="damna" resp="ed">damma-</corr>
-				"
-			</orth>
+			<orth>"damma-"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>v.</pos>
@@ -11501,11 +11477,7 @@
 	<item n="horrible">
 		<gloss>horrible</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="gorthob" resp="ed">gortheb</corr>
-				"
-			</orth>
+			<orth>"gortheb"</orth>
 			<usg type="lang" norm="S">*</usg>
 			<gramGrp>
 				<pos>adj.</pos>
@@ -12654,11 +12626,7 @@
 	<item n="knock">
 		<gloss>knock</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="tamno" resp="ed">tammo</corr>
-				"
-			</orth>
+			<orth>"tammo"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>v.</pos>
@@ -15026,11 +14994,7 @@
 	<item n="my">
 		<gloss>my</gloss>
 		<entry n="4">
-			<orth>
-				"
-				<corr sic="nín" resp="ed">nîn</corr>
-				"
-			</orth>
+			<orth>">nîn"</orth>
 			<usg type="lang" norm="S">*</usg>
 			<gramGrp>
 				<pos>adj.</pos>
@@ -17751,11 +17715,7 @@
 	<item n="recite">
 		<gloss>recite</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="glin" resp="ed">gliri</corr>
-				"
-			</orth>
+			<orth>"gliri"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>v.</pos>
@@ -20026,11 +19986,7 @@
 	<item n="sing">
 		<gloss>sing</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="glin" resp="ed">gliri</corr>
-				"
-			</orth>
+			<orth>"gliri"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>v.</pos>
@@ -20459,11 +20415,7 @@
 	<item n="snake">
 		<gloss>snake</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="lyg" resp="ed">l&#375;g</corr>
-				"
-			</orth>
+			<orth>"l&#375;g"</orth>
 			<usg type="lang" norm="S">*</usg>
 			<gramGrp>
 				<pos>n.</pos>
@@ -20564,11 +20516,7 @@
 	<item n="soap">
 		<gloss>soap</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="glúdh" resp="ed">glûdh</corr>
-				"
-			</orth>
+			<orth>""glûdh"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>n.</pos>
@@ -20924,11 +20872,7 @@
 	<item n="spark">
 		<gloss>spark</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="geil" resp="ed">gîl</corr>
-				"
-			</orth>
+			<orth>"gîl"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>n.</pos>
@@ -21595,11 +21539,7 @@
 	<item n="star">
 		<gloss>star</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="geil" resp="ed">gîl</corr>
-				"
-			</orth>
+			<orth>"gîl"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>n.</pos>
@@ -22844,11 +22784,7 @@
 	<item n="tearful">
 		<gloss>tearful</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="niniel" resp="ed">níniel</corr>
-				"
-			</orth>
+			<orth>níniel"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>adj.</pos>
@@ -23442,11 +23378,7 @@
 	<item n="to">
 		<gloss>to</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="helta" resp="ed">heltha-</corr>
-				"
-			</orth>
+			<orth>"heltha-"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>v.</pos>
@@ -24070,11 +24002,7 @@
 	<item n="trill">
 		<gloss>trill</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="glin" resp="ed">gliri</corr>
-				"
-			</orth>
+			<orth>"gliri""</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>v.</pos>
@@ -24790,11 +24718,7 @@
 	<item n="vassal">
 		<gloss>vassal</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="bór" resp="ed">bôr</corr>
-				"
-			</orth>
+			<orth>"bôr"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>n.</pos>
@@ -25919,11 +25843,7 @@
 	<item n="wild">
 		<gloss>wild</gloss>
 		<entry n="">
-			<orth>
-				"
-				<corr sic="brerg" resp="ed">brêg</corr>
-				"
-			</orth>
+			<orth>"brêg"</orth>
 			<usg type="lang" norm="N" />
 			<gramGrp>
 				<pos>adj.</pos>
