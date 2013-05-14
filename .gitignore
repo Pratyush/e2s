@@ -1,7 +1,6 @@
 *.class
 
 .classpath
-build.xml
 .project
 =======
 
