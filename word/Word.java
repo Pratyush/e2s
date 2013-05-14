@@ -2,6 +2,8 @@
 
 package word;
 
+import java.io.Serializable;
+
 /**
  * Word is a ADT that contains a word as well as the following information about it:
  * 
@@ -11,12 +13,14 @@ package word;
  * @author ar-curunir
  *
  */
-public class Word {
+public class Word implements Serializable {
 	
-	String word;
+  private static final long serialVersionUID = -3080620198150401568L;
+  String word;
 	String translation;
 	String pos;
 	String tense;
+	String usage;
 	
 	/**
 	 * Default constructor for Word.
@@ -27,6 +31,7 @@ public class Word {
   	translation = "";
   	pos = "";
   	tense = "";
+  	usage = "";
   }
   
   /**
@@ -37,11 +42,12 @@ public class Word {
    * @param pos the part of speech that translation belongs to.
    */
   
-  public Word(String word, String translation, String pos, String tns) {
+  public Word(String word, String translation, String pos, String tns, String usage) {
   	this.word = word;
   	this.translation = translation;
   	this.pos = pos;
   	this.tense = tns;
+  	this.usage = usage;
   }
   
   /**
@@ -65,8 +71,17 @@ public class Word {
   public String partOfSpeech() {
   	return pos;
   }
-  
+  /**
+   * @return the tense of this entry.
+   */
   public String tense() {
     return tense;
+  }
+  /**
+   * @return the usage of this entry.
+   */
+  
+  public String usage() {
+    return usage;
   }
 }

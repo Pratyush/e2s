@@ -2,31 +2,29 @@
 
 package gui;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
 import javax.swing.JButton;
-import javax.swing.JTextPane;
-
-import java.awt.Font;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-import dict.*;
-
-import word.*;
-import xmldoc.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import list.*;
-import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.UIManager;
+
+import map.MultiMap;
+import word.Word;
+import dbutil.MapEnToSd;
+import dbutil.MapSdToEn;
 
 public class StartWindow {
 
@@ -35,10 +33,9 @@ public class StartWindow {
   private JTextPane translations;
   JScrollPane scrlPaneTranslations;
   String input;
-  XMLDocument sindarinData;
-  DictSDEN sindarinToEnglish;
-  HashTableChained sindarinDict;
-  HashTableChained usageDict;
+  MapEnToSd sindarinData;
+  MapSdToEn sindarinToEnglish;
+  MultiMap sindarinDict;
 
   /**
    * Launch the application.
@@ -60,10 +57,7 @@ public class StartWindow {
    * Create the application.
    */
   public StartWindow() {
-    sindarinData = new XMLDocument("/assets/dict-en-sd.xml");
-    sindarinDict = sindarinData.toHashTableChained();
-    sindarinToEnglish = new DictSDEN("/assets/dict-sd-en.xml");
-    usageDict = sindarinToEnglish.toHashTableChained();
+    sindarinDict = new MapEnToSd("/assets/dict-en-sd.xml").getMap();
     initialize();
   }
 
@@ -171,33 +165,20 @@ public class StartWindow {
       translations.setText("Please input a valid word.");
     } else {
       translations.setText("");
-      DList listOfEntries = sindarinDict.findAll(input.toLowerCase());
-      if (listOfEntries != null && listOfEntries.length() != 0) {
-            
-        DListNode temp = listOfEntries.front();
-        Word currentWord = ((Word) ((Entry) (temp.item())).value());
+      ArrayList<Word> listOfEntries = sindarinDict.get(input.toLowerCase());
+      if (listOfEntries != null) {
 
-        for (int i = 0; i < listOfEntries.length(); i++) {
+        for (Word word : listOfEntries) {
 
-          currentWord = ((Word) ((Entry) (temp.item())).value());
-          translations.setText(translations.getText() + "Sindarin translation: " + currentWord.translation() + "\n");
-          translations.setText(translations.getText() + "Part of Speech: " + currentWord.partOfSpeech() + "\n");
-          if (!currentWord.tense().equals("-")) {
-          translations.setText(translations.getText() + "Tense: " + currentWord.tense() + "\n");  
+          translations.setText(translations.getText() + "Sindarin translation: " + word.translation() + "\n");
+          translations.setText(translations.getText() + "Part of Speech: " + word.partOfSpeech() + "\n");
+          if (!word.tense().equals("-")) {
+            translations.setText(translations.getText() + "Tense: " + word.tense() + "\n");  
           }
-          
-          if (usageDict.find(currentWord.translation()) != null) {
-          if (!((String) usageDict.find(currentWord.translation()).value()).equals("-") &&
-            !((String) usageDict.find(currentWord.translation()).value()).equals("")) {
-            translations.setText(translations.getText() + "Usage: " + usageDict.find(currentWord.translation())+ "\n");
-          }
+          if (!word.usage().equals("-")) {
+            translations.setText(translations.getText() + "Usage: " + word.usage() + "\n");
           }
           translations.setText(translations.getText() + "\n");
-          try {
-            temp = temp.next();
-          } catch (InvalidNodeException e) {
-            e.printStackTrace();
-          }
         }
       } else {
         translations.setText("Word not found in dictionary. Sorry!");
