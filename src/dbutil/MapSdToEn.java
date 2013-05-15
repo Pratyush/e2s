@@ -1,4 +1,4 @@
-package dbutil;
+package src.dbutil;
 
 import java.io.InputStream;
 import java.util.HashMap;

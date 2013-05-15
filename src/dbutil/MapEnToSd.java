@@ -1,6 +1,6 @@
 /*  XMLe2s.java  */
 
-package dbutil;
+package src.dbutil;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -9,13 +9,12 @@ import java.util.HashMap;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import map.MultiMap;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import word.Word;
+import src.map.MultiMap;
+import src.word.Word;
 
 
 /**
