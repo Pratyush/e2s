@@ -8,7 +8,7 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.sql.ResultSet;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -21,10 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.UIManager;
 
-import src.dbutil.MapEnToSd;
-import src.dbutil.MapSdToEn;
-import src.map.MultiMap;
-import src.word.Word;
+import src.dbutil.DBClass;
 
 public class StartWindow {
 
@@ -33,9 +30,7 @@ public class StartWindow {
   private JTextPane translations;
   JScrollPane scrlPaneTranslations;
   String input;
-  MapEnToSd sindarinData;
-  MapSdToEn sindarinToEnglish;
-  MultiMap sindarinDict;
+  DBClass sqlDB;
 
   /**
    * Launch the application.
@@ -57,7 +52,10 @@ public class StartWindow {
    * Create the application.
    */
   public StartWindow() {
-    sindarinDict = new MapEnToSd("/assets/dict-en-sd.xml").getMap();
+    sqlDB = new DBClass();
+    try {
+      sqlDB = new DBClass("jdbc:sqlite::resource:assets/dict-en-sd.db");
+    } catch (Exception ignore) {}
     initialize();
   }
 
@@ -160,29 +158,39 @@ public class StartWindow {
   private void enterActionPerformed(java.awt.event.ActionEvent evt) {
     scrlPaneTranslations.setOpaque(true);
     translations.setOpaque(true);
-    input = inputTextField.getText();
+    input = inputTextField.getText().toLowerCase();
     if (input.equalsIgnoreCase("")) {
       translations.setText("Please input a valid word.");
     } else {
       translations.setText("");
-      ArrayList<Word> listOfEntries = sindarinDict.get(input.toLowerCase());
-      if (listOfEntries != null) {
-
-        for (Word word : listOfEntries) {
-
-          translations.setText(translations.getText() + "Sindarin translation: " + word.translation() + "\n");
-          translations.setText(translations.getText() + "Part of Speech: " + word.partOfSpeech() + "\n");
-          if (!word.tense().equals("-")) {
-            translations.setText(translations.getText() + "Tense: " + word.tense() + "\n");  
-          }
-          if (!word.usage().equals("-")) {
-            translations.setText(translations.getText() + "Usage: " + word.usage() + "\n");
-          }
-          translations.setText(translations.getText() + "\n");
+      try {
+        ResultSet queryResult = sqlDB.executeQry("select * from ensd where word = " + "'" + input + "'");
+        if (!queryResult.next()) {
+          translations.setText("Word not found in dictionary. Sorry!");
+        } else {
+          do {
+            String translation = queryResult.getString("translation");
+            String pos = queryResult.getString("pos");
+            String tense = queryResult.getString("tense");
+            String usage = queryResult.getString("usage");
+            output(translation, pos, tense, usage);
+          } while(queryResult.next());
         }
-      } else {
-        translations.setText("Word not found in dictionary. Sorry!");
+      } catch(Exception e) {
+        e.printStackTrace();
       }
     }
+  }
+  
+  void output(String tr, String p, String te, String u) {
+    translations.setText(translations.getText() + "Sindarin translation: " + tr + "\n");
+    translations.setText(translations.getText() + "Part of Speech: " + p + "\n");
+    if (!te.equals("-")) {
+      translations.setText(translations.getText() + "Tense: " + te + "\n");  
+    }
+    if (!u.equals("-")) {
+      translations.setText(translations.getText() + "Usage: " + u + "\n");
+    }
+    translations.setText(translations.getText() + "\n");
   }
 }
